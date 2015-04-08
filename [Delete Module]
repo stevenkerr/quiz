@@ -1,0 +1,13 @@
+def forsteven ():
+    while True:
+        print ("Do you want to delete this question? y/n:")
+        choice = input("")
+        if choice == "y" or choice == "Y":
+            delete=True
+            break
+        elif choice == "n" or choice == "N":
+            delete=False
+            break
+        else:
+            print ("Please enter a valid choice.")
+        
