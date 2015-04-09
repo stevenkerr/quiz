@@ -2,7 +2,7 @@
 BY KEVIN KARRANDJAS AND STEVEN KERR
 
 Assignment 3: Quiz
-for Mrs. Ghanekar's ICS-4U0-A\n
+for Mrs. Ghanekar's ICS-4U0-A
 
 this folder contains all of the necessary files required to run the program.
 # INSTALLATION
