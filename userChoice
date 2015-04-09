@@ -1,7 +1,7 @@
 '''
 Made By: Steven Kerr
 File Name: user_choice.py
-Date: 08 Apr 2015
+Date: 08/09 Apr 2015
 Purpose: Takes in question to be asked, if true false, initiates tf mode, else,
     begins multiple choice mode, clarifies user answer, returns answer
 
@@ -16,11 +16,11 @@ def userChoice(tf_multi_yn, question):
             
             userPick = input(question)
             if userPick == "y" or userPick == "Y":
-                choice = True
-                return choice
+                return True
+            
             elif userPick == "n" or userPick == "N":
-                choice = False
-                return choice
+                return False
+            
             else:
                 print ("Invalid Entry")
 
