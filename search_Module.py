@@ -1,4 +1,5 @@
 import time
+
 def findLine ():
 
     """
@@ -56,6 +57,3 @@ def findLine ():
         exits = input("Do you want to try again? y/n: ")
         if exits == "n" or exits == "N":
             break
-       
-
-findLine ()
