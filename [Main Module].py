@@ -1,4 +1,6 @@
 import random,time
+from Add_and_Delete_Line import *
+from search_Module import *
 def optionCheck(low,hi):
     """checks that selected option is between low and hi"""
     while True:
@@ -68,9 +70,11 @@ def editMenu ():
         print ("3.EXIT")
         choice = optionCheck(1,3)
         if choice == 1:
-            add()
+            new_question()
         elif choice == 2:
-            delete()
+            line=findLine ()
+            line_delete(line)
         else:
             break
-mainMenu ()
+
+mainMenu()
