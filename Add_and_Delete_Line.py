@@ -1,4 +1,3 @@
-from user_choice import *
 
 '''
 File Name: add_delete.py
@@ -7,7 +6,7 @@ Date: 08/09 Apr 2015
 Purpose: Add new question to list - delete question from list
 FILES REQUIRED: user_choice.py
 '''
-
+import time
 #ADDING QUESTION
 
 
@@ -23,27 +22,28 @@ open file, append new info, close file
 '''
 
 
-def file_append(filename, newline):
+def file_append(newline):
     '''
-    takes in file name and the new line, checks if user wants to add it,
+    takes in the new line, checks if user wants to add it,
     adds to file
     '''
     newques = newline
     
     while True:
-        
-        add = userChoice("yn", "Are you sure you want to add this?")
-        if add == False:
+        add = input("are you sure you want to add this? y/n: ")
+        if add == "n":
             break
-        else:
-            with open(filename, "a") as file:
+        elif add == "y":
+            with open("questions.txt", "a") as file:
                 file.write(newques)
                 file.close()
                 break
-    
+        else:
+            print("please choose either 'y' or 'n' (without quotations)")
 
 
-def new_question(filename):
+def new_question():
+    open("questions.txt","a")
     newquestion = input("Enter your new question: ")
     newquestion = newquestion + "\t"
     choice_a = input("Choice A): ")
@@ -58,15 +58,27 @@ def new_question(filename):
     choice_d = input("Choice D): ")
     choice_d = "(D): " + choice_d + "\t"
 
-    answer = userChoice("multi", "What is the correct answer?")
+    while True:
+        answer = input("What is the correct answer? ")
+        time.sleep (0.5)
+        print("processing",end="")
+        time.sleep (0.5)
+        print(".",end="")
+        time.sleep (0.5)
+        print(".",end="")
+        time.sleep (0.5)
+        print(".")
+        
+        if answer == "A" or answer == "B" or answer == "C" or answer == "D":
+            break
+        else:
+            time.sleep (0.5)
+            print ("input a valid, capitalized answer.")
     answer = answer + "\n"
                         
-    newline = newquestion + choice_a + choice_b + choice_c + choice_d + answer
-
-    file_append(filename, newline)
-
-#def sentance_check(sentance):
-                        
+    newline = newquestion + choice_a + choice_b + choice_c + choice_d + answer + "\n"
+    print("question added!")
+    file_append(newline)
     
 
 
@@ -82,30 +94,26 @@ EXPECTATION: linedel is full string of line to be deleted, not position in list,
 including \t's and \n's
 '''
 
-def line_delete(filename, linedel):
+def line_delete(linedel):
     ''' determine deletion = true
         open and read file, get all info
         write to file all lines from last original file
         except the one to be deleted
     '''
     
-    while True:
-        delete = userChoice("yn", "Are you sure you want to delete this?")
-        if delete == False:
-            break
-        elif delete == True:
-            file = open(filename, "r")
-            fullfile = file.readlines()
-            file.close
+    
+    file = open("questions.txt", "r")
+    fullfile = file.readlines()
+    file.close
 
-            file = open(filename, "w")
-            for line in fullfile:
-                if line != linedel:
-                    file.write(line)
-            break
+    file = open("questions.txt", "w")
+    for line in fullfile:
+        if line != linedel:
+            file.write(line)
 
 
 
+"""
 # TEST CASES
 
 if __name__ == '__main__':
@@ -160,3 +168,4 @@ if __name__ == '__main__':
     newfile.close()
     print (newlines)
     '''
+"""
