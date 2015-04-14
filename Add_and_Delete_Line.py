@@ -6,7 +6,7 @@ Purpose: Add new question to list - delete question from list
 FILES REQUIRED: user_choice.py
 '''
 import time
-from user_choice import *
+from userChoice import *
 #ADDING QUESTION
 
 
@@ -42,7 +42,7 @@ def file_append(filename, newline):
 
 
 def new_question(): 
-    open("questions.txt","a")
+    
     newquestion = input("Enter your new question: ")
     newquestion = newquestion + "\t"
     choice_a = input("Choice A): ")
