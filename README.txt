@@ -15,4 +15,11 @@ question bank (questions.txt file). Teachers can add questions to the bank, or s
 
 
 # CHANGELOG
-v 0.0.1: initial stable build
+v 0.1: initial build
+v 0.2: userChoice module properly incorporated into the program
+v 0.3: stability enhancements
+v 0.4: undid previous modularity changes for stability
+v 0.5: search module overhaul; removed error where extra blank line is added at end of a new question
+v 0.5.1: added a check in play mode to ensure that a blank line isnt used
+v 0.6: polishing, comments adde
+v 0.7: prep for final build; new questions added
