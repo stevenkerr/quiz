@@ -37,7 +37,6 @@ def userChoice(tf_multi_yn, question):
             else:
                 print ("Invalid Entry")
 
-        
     
     elif tf_multi_yn == "multi":
         
