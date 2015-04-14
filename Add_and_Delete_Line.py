@@ -1,4 +1,3 @@
-
 '''
 File Name: add_delete.py
 Made By: Steven Kerr
@@ -7,6 +6,7 @@ Purpose: Add new question to list - delete question from list
 FILES REQUIRED: user_choice.py
 '''
 import time
+from user_choice import *
 #ADDING QUESTION
 
 
@@ -22,7 +22,7 @@ open file, append new info, close file
 '''
 
 
-def file_append(newline):
+def file_append(filename, newline):
     '''
     takes in the new line, checks if user wants to add it,
     adds to file
@@ -30,19 +30,18 @@ def file_append(newline):
     newques = newline
     
     while True:
-        add = input("are you sure you want to add this? y/n: ")
-        if add == "n":
+        add = userChoice("yn", "are you sure you want to add this?")
+        if add == False:
             break
-        elif add == "y":
-            with open("questions.txt", "a") as file:
+        else:
+            with open(filename, "a") as file:
                 file.write(newques)
                 file.close()
                 break
-        else:
-            print("please choose either 'y' or 'n' (without quotations)")
+        
 
 
-def new_question():
+def new_question(): 
     open("questions.txt","a")
     newquestion = input("Enter your new question: ")
     newquestion = newquestion + "\t"
@@ -58,28 +57,24 @@ def new_question():
     choice_d = input("Choice D): ")
     choice_d = "(D): " + choice_d + "\t"
 
-    while True:
-        answer = input("What is the correct answer? ")
-        time.sleep (0.5)
-        print("processing",end="")
-        time.sleep (0.5)
-        print(".",end="")
-        time.sleep (0.5)
-        print(".",end="")
-        time.sleep (0.5)
-        print(".")
-        
-        if answer == "A" or answer == "B" or answer == "C" or answer == "D":
-            break
-        else:
-            time.sleep (0.5)
-            print ("input a valid, capitalized answer.")
+    answer = userChoice("multi", "What is the correct answer?")
     answer = answer + "\n"
-                        
-    newline = newquestion + choice_a + choice_b + choice_c + choice_d + answer + "\n"
-    print("question added!")
-    file_append(newline)
     
+        
+    time.sleep (0.5)
+    print("processing",end="")
+    time.sleep (0.5)
+    print(".",end="")
+    time.sleep (0.5)
+    print(".",end="")
+    time.sleep (0.5)
+    print(".")
+        
+                       
+    newline = newquestion + choice_a + choice_b + choice_c + choice_d + answer + "\n"
+    
+    file_append("questions.txt", newline) 
+    print("question added!")
 
 
 
