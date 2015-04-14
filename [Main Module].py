@@ -1,6 +1,7 @@
 import random,time
 from Add_and_Delete_Line import *
 from search_Module import *
+from userChoice import *
 def optionCheck(low,hi):
     """checks that selected option is between low and hi"""
     while True:
@@ -43,14 +44,16 @@ def play ():
     random.shuffle(quizlist)
 
     for count in range (10):
-        question = quizlist[count]
+        if len(quizlist[count])>1:#prevents blank line from being chosen
+            question = quizlist[count]
+            
         for i in range (5):
             print (question[i])
             time.sleep(1)
         time.sleep(1)
-        userAnswer = input("\nyour choice: ")
+        userAnswer = userChoice("multi","your answer: ")
         answer = str(question [5])
-        answer = answer.split()
+        answer = answer.split() #needed to seperate the first input, a space is
         if userAnswer == answer[0]:
             print ("correct!\n")
             score+=1
