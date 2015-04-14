@@ -1,4 +1,5 @@
 import time
+from userChoice import *
 
 def findLine ():
 
@@ -48,12 +49,12 @@ def findLine ():
             for question in results:
                 print ("Match Found!\n",question)
 
-                correct = input("is this the question you want deleted? type 'yes' if so: ")
-                if correct == "yes":
+                correct = userChoice("yn","is this the question you want deleted? y/n: ")
+                if correct == True:
                     return question
                 else:
                     break
             break
-        exits = input("Do you want to try again? y/n: ")
-        if exits == "n" or exits == "N":
+        exits = userChoice("Do you want to try again? y/n: ")
+        if exits == False:
             break
