@@ -1,3 +1,9 @@
+"""
+ASSIGNMENT 3: QUIZ
+Program by Kevin and Steven
+Search module by Kevin
+"""
+
 import time
 from userChoice import *
 
@@ -5,7 +11,7 @@ def findLine ():
 
     """
        this function searches through a file for any matching lines.
-       it then will go through these questions in order until a match
+       it will then go through these questions in order until a match
        is chosen. Once a match is chosen, it is re-confirmed by the
        user, and is returned from the function to be used for deletion.
        Kevin K.
@@ -31,20 +37,18 @@ def findLine ():
         for line in root:
             if keywords in line:
                 results.append(line) #added functionality. returns all matches
-                break                 #rather than first
+                                     #rather than first
         root.close()
         
         print ("searching",end="")
-        time.sleep(1)
+        time.sleep(0.5)
         print (".",end="")
-        time.sleep(1)
+        time.sleep(0.5)
         print (".",end="")
-        time.sleep(1)
-        print (".",end="")
+        time.sleep(0.5)
+        print (".")
         
-        if not results:
-            print ("Your search returned no results. Try refining your Search Terms.")
-        else:
+        if results:
             
             for question in results:
                 print ("Match Found!\n",question)
@@ -52,9 +56,10 @@ def findLine ():
                 correct = userChoice("yn","is this the question you want deleted? y/n: ")
                 if correct == True:
                     return question
-                else:
-                    break
-            break
-        exits = userChoice("Do you want to try again? y/n: ")
+            
+        print ("There are no matching results. Try refining your Search Terms.")
+        exits = userChoice("yn","Do you want to try again? y/n: ")
         if exits == False:
+            print ("Returning to menu...")
+            time.sleep(1)
             break
