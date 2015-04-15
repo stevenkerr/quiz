@@ -1,7 +1,12 @@
+"""
+ASSIGNMENT 3: QUIZ
+Program by Kevin and Steven
+"""
 import random,time
 from Add_and_Delete_Line import *
 from search_Module import *
 from userChoice import *
+
 def optionCheck(low,hi):
     """checks that selected option is between low and hi"""
     while True:
@@ -15,7 +20,8 @@ def optionCheck(low,hi):
             print ("Error 2: User input is not an integer.")
     return int(choice)
 
-def mainMenu ():
+def main ():
+    '''main function of program, contains the main menu'''
     while True:
         print ("\tMAIN MENU")
         print ("")
@@ -24,12 +30,24 @@ def mainMenu ():
         print ("3.EXIT")
         choice = optionCheck(1,3)
         if choice == 1:
+            print("starting in:",end="")
+            time.sleep(0.25)
+            print(" 3",end="")
+            time.sleep(1)
+            print(" 2",end="")
+            time.sleep(1)
+            print(" 1")
+            time.sleep(1)
+            print("######################################QUIZ",end="")
+            print("######################################\n")
             play()
         elif choice == 2:
-            xit=editMenu()
+            editMenu()
         else:
             break
+        
 def play ():
+    '''collects data from file and asks users 10 random questions'''
     quizlist = []
     score = 0
     count = 1
@@ -44,6 +62,8 @@ def play ():
     random.shuffle(quizlist)
 
     for count in range (10):
+        qn=count+1
+        print("Question #",qn,sep="")
         if len(quizlist[count])>1:#prevents blank line from being chosen
             question = quizlist[count]
             
@@ -53,9 +73,10 @@ def play ():
         time.sleep(1)
         userAnswer = userChoice("multi","your answer: ")
         answer = str(question [5])
-        answer = answer.split() #needed to seperate the first input, a space is
+        answer = answer.split() #needed as a space is mysteriously added to input
         if userAnswer == answer[0]:
             print ("correct!\n")
+            
             score+=1
             time.sleep(.5)
         else:
@@ -65,6 +86,7 @@ def play ():
     print ("you got ",score,"0%!",sep="")
     time.sleep(3)
 def editMenu ():
+    '''MENU TO ACCESS ADD/DELETE PROCEDURES'''
     while True:
         print ("\n\tEDITING MENU")
         print ("")
@@ -80,4 +102,4 @@ def editMenu ():
         else:
             break
 
-mainMenu()
+main()
