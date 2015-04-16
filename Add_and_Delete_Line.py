@@ -9,7 +9,6 @@ import time
 from userChoice import *
 #ADDING QUESTION
 
-
 '''
 get question, check for \n, \t, etc, remove it add \t, add to new question
 variable, get 4 choice answers, check for \n, \t, etc, remove if so, add \t,
@@ -20,7 +19,6 @@ check if for sure user wants to add to list
 
 open file, append new info, close file
 '''
-
 
 def file_append(filename, newline):
     '''
@@ -40,8 +38,8 @@ def file_append(filename, newline):
                 break
         
 
-
 def new_question(): 
+    ''' gets new question, 4 options and the final answer, appends them to the correct file'''
     
     newquestion = input("Enter your new question: ")
     newquestion = newquestion + "\t"
@@ -77,8 +75,6 @@ def new_question():
     print("question added!")
 
 
-
-
 #DELETING QUESTION
 
 '''
@@ -96,7 +92,6 @@ def line_delete(linedel):
         except the one to be deleted
     '''
     
-    
     file = open("questions.txt", "r")
     fullfile = file.readlines()
     file.close
@@ -105,7 +100,6 @@ def line_delete(linedel):
     for line in fullfile:
         if line != linedel:
             file.write(line)
-
 
 
 """
